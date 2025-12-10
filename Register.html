@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI/UX Challenge Registration</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+        :root {
+            --primary: #6c5ce7;
+            --secondary: #a29bfe;
+            --bg-dark: #1e1e2e;
+            --glass: rgba(255, 255, 255, 0.05);
+            --border: rgba(255, 255, 255, 0.1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+
+        body {
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .container { perspective: 1000px; }
+        
+        .form-card {
+            background: var(--glass);
+            padding: 3rem;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            backdrop-filter: blur(15px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+            width: 450px;
+            text-align: center;
+            color: white;
+            transition: 0.5s ease;
+            position: relative;
+        }
+
+        h2 { font-weight: 600; letter-spacing: 1px; margin-bottom: 5px; }
+        .subtitle { font-size: 0.9rem; color: #ccc; margin-bottom: 2rem; }
+
+        .animate-text { opacity: 0; transform: translateY(-20px); animation: fadeInDown 0.8s forwards; }
+        .animate-up { opacity: 0; transform: translateY(20px); animation: fadeInUp 0.8s forwards; }
+        
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.3s; }
+        .delay-3 { animation-delay: 0.4s; }
+        .delay-4 { animation-delay: 0.5s; }
+        .delay-5 { animation-delay: 0.6s; }
+        .delay-btn { animation-delay: 0.7s; }
+
+        .input-group { position: relative; margin: 35px 0; text-align: left; }
+
+        input, select {
+            width: 100%;
+            padding: 10px 0;
+            font-size: 16px;
+            color: white;
+            border: none;
+            border-bottom: 2px solid #555;
+            background: transparent;
+            outline: none;
+            transition: 0.3s;
+        }
+        
+        select option { background: #302b63; color: white; }
+
+        label {
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding: 10px 0;
+            font-size: 16px;
+            color: #aaa;
+            pointer-events: none;
+            transition: 0.3s;
+        }
+
+        input:focus ~ label,
+        input:not(:placeholder-shown) ~ label,
+        select:focus ~ label,
+        select:valid ~ label {
+            top: -20px;
+            font-size: 12px;
+            color: var(--secondary);
+        }
+
+        input:focus, select:focus { border-bottom: 2px solid var(--primary); }
+
+        .btn-submit {
+            position: relative;
+            padding: 12px 30px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            border-radius: 40px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+            transition: 0.3s;
+            box-shadow: 0 5px 15px rgba(108, 92, 231, 0.4);
+        }
+
+        .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(108, 92, 231, 0.6); }
+
+        .hidden { display: none; }
+        #success-msg { text-align: center; animation: fadeIn 0.5s ease; padding: 20px 0; }
+        #success-msg h3 { color: #55efc4; margin-bottom: 10px; font-size: 1.8rem; }
+        #success-msg p { margin-bottom: 20px; color: #ddd; font-size: 1.1rem; }
+        .check-icon { font-size: 60px; margin-bottom: 10px; display: block; animation: fadeInDown 0.5s; }
+
+        @keyframes fadeInDown { to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="form-card">
+            
+            <div id="form-container">
+                <h2 class="animate-text">UI/UX Challenge</h2>
+                <p class="subtitle animate-text delay-1">Register now to showcase your skills.</p>
+
+                <form id="uiForm" 
+                      action="https://docs.google.com/forms/d/e/1FAIpQLScaw3CJL8QDgI8P15zWRXUsQytqeYn2swzYlqoRrpul73tX2w/formResponse" 
+                      method="POST" 
+                      target="hidden_iframe" 
+                      onsubmit="handleSubmission()">
+                    
+                    <div class="input-group animate-up delay-1">
+                        <input type="text" name="entry.305282136" required placeholder=" ">
+                        <label>Full Name</label>
+                    </div>
+
+                    <div class="input-group animate-up delay-2">
+                        <input type="email" name="entry.1522146468" required placeholder=" ">
+                        <label>Email Address</label>
+                    </div>
+
+                    <div class="input-group animate-up delay-3">
+                        <input type="tel" name="entry.378018812" required placeholder=" ">
+                        <label>Phone (WhatsApp Active)</label>
+                    </div>
+
+                    <div class="input-group animate-up delay-4">
+                        <input type="text" name="entry.375378056" placeholder=" ">
+                        <label>UI Projects (Drive Links)</label>
+                    </div>
+
+                    <div class="input-group animate-up delay-5">
+                        <select name="entry.1432758483" required>
+                            <option value="" disabled selected></option>
+                            <option value="Beginner (0-1 Year)">Beginner (0-1 Year)</option>
+                            <option value="Intermediate (1-3 Years)">Intermediate (1-3 Years)</option>
+                            <option value="Pro (3+ Years)">Pro (3+ Years)</option>
+                        </select>
+                        <label>Experience Level</label>
+                    </div>
+
+                    <button type="submit" class="btn-submit animate-up delay-btn">Submit Registration</button>
+                </form>
+            </div>
+
+            <div id="success-msg" class="hidden">
+                <span class="check-icon">✅</span>
+                <h3>Successful!</h3>
+                <p>We will inform you shortly...</p>
+            </div>
+
+        </div>
+    </div>
+
+    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) { displaySuccess() }"></iframe>
+
+    <script>
+        var submitted = false;
+
+        function handleSubmission() {
+            submitted = true;
+            const btn = document.querySelector('.btn-submit');
+            btn.innerHTML = "Sending...";
+            btn.style.opacity = "0.8";
+        }
+
+        function displaySuccess() {
+            const formContainer = document.getElementById('form-container');
+            const successMsg = document.getElementById('success-msg');
+
+            formContainer.style.opacity = '0';
+            formContainer.style.transform = 'scale(0.95)';
+            
+            setTimeout(() => {
+                formContainer.style.display = 'none';
+                successMsg.classList.remove('hidden');
+                
+                void successMsg.offsetWidth;
+                successMsg.style.opacity = '1';
+            }, 500);
+        }
+    </script>
+</body>
+</html>
